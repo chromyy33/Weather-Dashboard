@@ -1,0 +1,48 @@
+// Light color palette;
+$color-bg: #101014;
+$color-white-bg: #f8f8f6;
+$white: #fff;
+$color-light-grey: #b3b3b3;
+$color-purple: #5a46cf;
+//Dark Color palette;
+$color-bg: #101014;
+$color-grey: #28282c;
+$color-yellow: #e69a0a;
+$color-yellow-dark: #805606;
+$color-grey-light: #b7b7b9;
+$color-white: #e7e7e8;
+
+//Common Colors
+$color-bg: #101014;
+$white: #fff;
+$black: #000;
+
+@mixin theme-light {
+  --color-bg: #f8f8f6;
+  --color-white: #101014;
+  --color-grey-light: #b3b3b3;
+  --color-purple: #5a46cf;
+  --color-yellow: #e69a0a;
+  --color-yellow-dark: #805606;
+  --color-grey: #e7e7e8;
+  --shadow: 16, 16, 20;
+}
+
+@mixin theme-dark {
+  --color-bg: #101014;
+  --color-grey: #28282c;
+  --color-yellow: #e69a0a;
+  --color-yellow-dark: #805606;
+  --color-grey-light: #b7b7b9;
+  --color-white: #e7e7e8;
+  --shadow: 0, 0, 0;
+}
+// Apply the default theme
+:root {
+  @include theme-light;
+}
+
+// Dark theme rules based on a data attribute
+[data-theme="dark"] {
+  @include theme-dark;
+}

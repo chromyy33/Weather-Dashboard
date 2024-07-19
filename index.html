@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TITLE -->
+    <title>WeatherWizz</title>
+    <!-- ICONS-FONTAWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="css/index.css" />
+    <!-- FAVICONS -->
+    <link
+      rel="shortcut icon"
+      href="./icons/weatherWizz-favicons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./icons/weatherWizz-favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./icons/weatherWizz-favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./icons/weatherWizz-favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./icons/weatherWizz-favicons/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="./icons/weatherWizz-favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#eeeeee" />
+
+    <!-- FONT -->
+    <link
+      href="
+    https://cdn.jsdelivr.net/npm/@fontsource/figtree@5.0.19/index.min.css
+    "
+      rel="stylesheet"
+    />
+    <!-- CHART JS -->
+  </head>
+  <body class="flex jc-c ai-c">
+    <main class="main-container flex">
+      <div class="left">
+        <div class="weather-card">
+          <div class="image-container flex ai-c jc-s">
+            <img class="weather-icon" src="./WeatherIcons/Snow.svg" alt="" />
+          </div>
+          <div class="weather-info flex">
+            <p class="city-name">Brampton, Ontario</p>
+            <p class="weather-type">Sunny</p>
+            <p class="feels-like">Feels Like -5° C</p>
+          </div>
+          <p class="weather-reading">12°<span class="weather-unit">C</span></p>
+        </div>
+        <div class="graph-card shadow">
+          <canvas id="my-chart" width="200px" height="100px"></canvas>
+        </div>
+        <div class="cities flex column">
+          <div class="cities-container">
+            <div class="cities-card shadow flex jc-sb ai-c">
+              <img
+                class="weather-icon"
+                src="./WeatherIcons/Snowy Sunny Day.svg"
+              />
+              <div class="container">
+                <p class="city name">New York, USA</p>
+                <p class="weather-type">Sunny</p>
+              </div>
+              <div class="weather-reading">26°</div>
+            </div>
+            <div class="cities-card flex jc-sb ai-c">
+              <img
+                class="weather-icon"
+                src="./WeatherIcons/Snowy Sunny Day.svg"
+              />
+              <div class="container">
+                <p class="city name">New York, USA</p>
+                <p class="weather-type">Sunny</p>
+              </div>
+              <div class="weather-reading">26°</div>
+            </div>
+          </div>
+        </div>
+        <button class="add-city-btn flex jc-sb ai-c">
+          <i class="add-btn fa-solid fa-plus"></i>Add city to favorites
+        </button>
+      </div>
+
+      <div class="right">
+        <div class="top-bar flex ai-c">
+          <div class="date-time">
+            <h3 class="time">
+              <p class="skeleton"><br /></p>
+            </h3>
+            <p class="date"></p>
+          </div>
+
+          <div class="search-bar relative flex ai-c">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input
+              type="text"
+              id="search"
+              name="search"
+              class="search"
+              placeholder="Search City"
+            />
+            <i class="fa-solid fa-xmark search-icon hidden"></i>
+            <ul class="search-results flex abs"></ul>
+          </div>
+          <div class="theme-switch-wrapper pointer">
+            <div id="theme" class="flex jc-sb ai-c">
+              <i class="fa-regular fa-sun theme-icon inactive"></i>
+              <i class="fa-regular fa-moon active theme-icon"></i>
+              <div class="mask"></div>
+            </div>
+          </div>
+          <div class="temperature-wrapper flex">
+            <button class="temperature circle flex ai-c jc-c current pointer">
+              C
+            </button>
+            <button class="temperature circle flex ai-c jc-c pointer">F</button>
+          </div>
+        </div>
+
+        <div class="weekly-container">
+          <div class="weekly-weather flex jc sb">
+            <div class="daily-card shadow flex ai-c jc-c column">
+              <div class="day">Sun</div>
+              <img
+                src="./WeatherIcons/Fog.svg"
+                alt=""
+                class="daily-weather-icon"
+              />
+              <div class="daily-weather-temp">1° C</div>
+            </div>
+            <div class="daily-card"></div>
+
+            <div class="daily-card"></div>
+            <div class="daily-card"></div>
+            <div class="daily-card"></div>
+            <div class="daily-card"></div>
+            <div class="daily-card"></div>
+          </div>
+        </div>
+        <div class="today-container">
+          <h2 class="today-heading">Today's Overview</h2>
+          <div class="today-status-container grid">
+            <div class="status-card shadow">
+              <div class="status-card-title">UV Index</div>
+              <div
+                class="uv"
+                role="progressbar"
+                aria-valuenow="33"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                style="--value: "
+              ></div>
+            </div>
+            <div class="status-card shadow wind">
+              <div class="status-card-title">Wind Status</div>
+              <div class="wind-value">7.80 <span>km/h</span></div>
+              <p class="wind-info">South-East . 23.4 km/h</p>
+            </div>
+            <div class="status-card shadow sun">
+              <div class="status-card-title">Sunset and Sunrise</div>
+              <div class="sun-container flex column">
+                <div class="sunrise flex ai-c">
+                  <div class="sunrise-icon">
+                    <i class="fa-solid fa-arrow-up"></i>
+                  </div>
+                  <p class="sunrise-time">06:23 A.M</p>
+                </div>
+                <div class="sundown flex ai-c">
+                  <div class="sundown-icon">
+                    <i class="fa-solid fa-arrow-down"></i>
+                  </div>
+                  <p class="sundown-time">06:23 A.M</p>
+                </div>
+              </div>
+            </div>
+            <div class="status-card-small humidityBox shadow">
+              <div class="status-card-title">Humidity</div>
+              <p class="humidity">27<span>%</span></p>
+              <p>The dew point is 24° C</p>
+            </div>
+            <div class="status-card-small shadow visibilityBox">
+              <div class="status-card-title">Visibility</div>
+              <p class="visibility">3.2 <span>km</span></p>
+              <p>Visibility is average.</p>
+            </div>
+            <div class="status-card-small shadow aqi">
+              <div class="status-card-title">Air Quality Index</div>
+              <p class="air-quality">3.2</p>
+              <p>Air Quality is good.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  <!-- Load index.js as a module -->
+  <script type="module" src="./scripts/index.js"></script>
+  <!-- Load Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <!-- Load new.js as a module -->
+</html>

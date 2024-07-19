@@ -1,0 +1,51 @@
+//Reusable classes;
+
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+.jc-c {
+  justify-content: center;
+}
+.jc-e {
+  justify-content: end;
+}
+.jc-s {
+  justify-content: start;
+}
+.jc-sb {
+  justify-content: space-between;
+}
+.ai-c {
+  align-items: center;
+}
+.ai-e {
+  align-items: end;
+}
+.ai-s {
+  align-items: start;
+}
+.relative {
+  position: relative;
+}
+.abs {
+  position: absolute;
+}
+.circle {
+  border-radius: 50%;
+}
+.pointer {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+.column {
+  flex-direction: column;
+}
+.shadow {
+  box-shadow: rgba(var(--shadow), 0.2) 0px 4px 14px;
+}
