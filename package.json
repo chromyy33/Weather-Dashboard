@@ -3,7 +3,7 @@
     "chart.js": "^4.4.2",
     "gulp": "^5.0.0",
     "gulp-sass": "^5.1.0",
-    "sass": "^1.70.0"
+    "sass": "^1.77.8"
   },
   "name": "weather-dashboard",
   "version": "1.0.0",

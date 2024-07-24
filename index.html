@@ -10,45 +10,35 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     />
-
-    <link rel="stylesheet" href="css/index.css" />
-    <!-- FAVICONS -->
-    <link
-      rel="shortcut icon"
-      href="./icons/weatherWizz-favicons/favicon.ico"
-      type="image/x-icon"
-    />
+    <link rel="stylesheet" href="/build/index.css" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="./icons/weatherWizz-favicons/apple-touch-icon.png"
+      href="/build/icons/weatherWizz-favicons/apple-touch-icon.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./icons/weatherWizz-favicons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="./icons/weatherWizz-favicons/android-chrome-192x192.png"
+      href="/build/icons/weatherWizz-favicons/favicon-32x32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="./icons/weatherWizz-favicons/favicon-16x16.png"
+      href="/build/icons/weatherWizz-favicons/favicon-16x16.png"
     />
-    <link rel="manifest" href="./icons/weatherWizz-favicons/site.webmanifest" />
+    <link
+      rel="manifest"
+      href="/build/icons/weatherWizz-favicons/site.webmanifest"
+    />
     <link
       rel="mask-icon"
-      href="./icons/weatherWizz-favicons/safari-pinned-tab.svg"
+      href="/build/icons/weatherWizz-favicons/safari-pinned-tab.svg"
       color="#5bbad5"
     />
     <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#eeeeee" />
+    <meta name="theme-color" content="#ffffff" />
 
     <!-- FONT -->
     <link
@@ -62,7 +52,6 @@
   <body class="flex jc-c ai-c">
     <main class="main-container relative flex">
       <div class="left">
-       
         <div class="weather-card">
           <div class="image-container ai-c jc-s">
             <div class="img-placeholder skeleton"></div>
@@ -105,7 +94,7 @@
       </div>
 
       <div class="right">
-         <div class="top-bar tablet flex ai-c jc-sb">
+        <div class="top-bar tablet flex ai-c jc-sb">
           <div class="date-time">
             <h3 class="time">
               <p class="skeleton"><br /></p>
@@ -126,7 +115,6 @@
             <ul class="search-results shadow flex abs"></ul>
           </div>
           <div class="divider flex">
-           
             <div class="theme-switch-wrapper pointer">
               <div id="theme" data-theme="light" class="flex jc-sb ai-c">
                 <i class="fa-regular fa-moon theme-icon inactive"></i>
@@ -270,7 +258,9 @@
   </body>
 
   <!-- Load index.js as a module -->
-  <script type="module" src="./scripts/index.js"></script>
+  <script type="module" src="/build/index.js"></script>
+
+  <!-- <script type="module" src="./scripts/index.js"></script> -->
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <!-- Load Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TITLE -->
+    <title>WeatherWizz</title>
+    <!-- ICONS-FONTAWESOME -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/build/index.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/build/icons/weatherWizz-favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/build/icons/weatherWizz-favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/build/icons/weatherWizz-favicons/favicon-16x16.png"
+    />
+    <link
+      rel="manifest"
+      href="/build/icons/weatherWizz-favicons/site.webmanifest"
+    />
+    <link
+      rel="mask-icon"
+      href="/build/icons/weatherWizz-favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- FONT -->
+    <link
+      href="
+    https://cdn.jsdelivr.net/npm/@fontsource/figtree@5.0.19/index.min.css
+    "
+      rel="stylesheet"
+    />
+    <!-- CHART JS -->
+  </head>
+  <body class="flex jc-c ai-c">
+    <main class="main-container relative flex">
+      <div class="left">
+        <div class="weather-card">
+          <div class="image-container ai-c jc-s">
+            <div class="img-placeholder skeleton"></div>
+          </div>
+          <div class="weather-info flex">
+            <p class="city-name skeleton" id="transparent">Brampton, Ontario</p>
+            <p class="weather-type skeleton" id="transparent">Sunny</p>
+            <p class="feels-like skeleton" id="transparent">Feels Like -5° C</p>
+          </div>
+          <p class="weather-reading skeleton" id="transparent">
+            12°<span class="weather-unit">C</span>
+          </p>
+        </div>
+        <div class="graph-card shadow">
+          <div class="loader">
+            <svg class="circular" viewbox="25 25 50 50">
+              <circle
+                class="path"
+                cx="50"
+                cy="50"
+                r="20"
+                fill="none"
+                stroke-width="2"
+                stroke-miterlimit="10"
+              ></circle>
+            </svg>
+          </div>
+        </div>
+        <p class="saved-cities">Saved Cites</p>
+
+        <div class="cities flex column">
+          <div class="cities-container">
+            <div class="cities-card skeleton flex jc-sb ai-c"></div>
+            <div class="cities-card skeleton flex jc-sb ai-c"></div>
+          </div>
+        </div>
+        <button class="add-city-btn flex jc-sb ai-c">
+          <i class="add-btn fa-solid fa-plus"></i>Add city to favorites
+        </button>
+      </div>
+
+      <div class="right">
+        <div class="top-bar tablet flex ai-c jc-sb">
+          <div class="date-time">
+            <h3 class="time">
+              <p class="skeleton"><br /></p>
+            </h3>
+            <p class="date"></p>
+          </div>
+          <div class="search-bar relative flex ai-c">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input
+              type="text"
+              id="search"
+              name="search"
+              class="search"
+              placeholder="Search City"
+            />
+            <i class="fa-solid fa-xmark search-icon hidden"></i>
+            <i class="fa-solid fa-location-crosshairs location-icon"></i>
+            <ul class="search-results shadow flex abs"></ul>
+          </div>
+          <div class="divider flex">
+            <div class="theme-switch-wrapper pointer">
+              <div id="theme" data-theme="light" class="flex jc-sb ai-c">
+                <i class="fa-regular fa-moon theme-icon inactive"></i>
+
+                <i class="fa-regular fa-sun theme-icon active"></i>
+                <div class="mask"></div>
+              </div>
+            </div>
+            <div class="temperature-wrapper flex">
+              <button
+                class="temperature circle flex ai-c jc-c current pointer"
+                id="celsius"
+              >
+                C
+              </button>
+              <button
+                class="temperature circle flex ai-c jc-c pointer"
+                id="Fahrenheit"
+              >
+                F
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="weekly-container">
+          <div class="weekly-weather flex jc sb">
+            <div class="daily-card skeleton flex ai-c jc-c column"></div>
+            <div class="daily-card skeleton"></div>
+            <div class="daily-card skeleton"></div>
+            <div class="daily-card skeleton"></div>
+            <div class="daily-card skeleton"></div>
+            <div class="daily-card skeleton"></div>
+            <div class="daily-card skeleton"></div>
+          </div>
+        </div>
+        <div class="today-container">
+          <h2 class="today-heading">Today's Overview</h2>
+          <div class="today-status-container grid">
+            <div class="status-card uv-card shadow">
+              <div class="status-card-title">UV Index</div>
+              <div class="loader">
+                <svg class="circular" viewbox="25 25 50 50">
+                  <circle
+                    class="path"
+                    cx="50"
+                    cy="50"
+                    r="20"
+                    fill="none"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                  ></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="status-card shadow wind">
+              <div class="status-card-title">Wind Status</div>
+              <div class="loader">
+                <svg class="circular" viewbox="25 25 50 50">
+                  <circle
+                    class="path"
+                    cx="50"
+                    cy="50"
+                    r="20"
+                    fill="none"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                  ></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="status-card shadow sun">
+              <div class="status-card-title">Sunset and Sunrise</div>
+              <div class="loader">
+                <svg class="circular" viewbox="25 25 50 50">
+                  <circle
+                    class="path"
+                    cx="50"
+                    cy="50"
+                    r="20"
+                    fill="none"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                  ></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="status-card-small humidityBox shadow">
+              <div class="status-card-title">Humidity</div>
+              <div class="loader">
+                <svg class="circular" viewbox="25 25 50 50">
+                  <circle
+                    class="path"
+                    cx="50"
+                    cy="50"
+                    r="20"
+                    fill="none"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                  ></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="status-card-small shadow visibilityBox">
+              <div class="status-card-title">Visibility</div>
+              <div class="loader">
+                <svg class="circular" viewbox="25 25 50 50">
+                  <circle
+                    class="path"
+                    cx="50"
+                    cy="50"
+                    r="20"
+                    fill="none"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                  ></circle>
+                </svg>
+              </div>
+            </div>
+            <div class="status-card-small shadow aqi">
+              <div class="status-card-title">Air Quality Index</div>
+              <div class="loader">
+                <svg class="circular" viewbox="25 25 50 50">
+                  <circle
+                    class="path"
+                    cx="50"
+                    cy="50"
+                    r="20"
+                    fill="none"
+                    stroke-width="2"
+                    stroke-miterlimit="10"
+                  ></circle>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="notifs"></div>
+  </body>
+
+  <!-- Load index.js as a module -->
+  <script type="module" src="/build/index.js"></script>
+
+  <!-- <script type="module" src="./scripts/index.js"></script> -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <!-- Load Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+  <!-- Load new.js as a module -->
+</html>

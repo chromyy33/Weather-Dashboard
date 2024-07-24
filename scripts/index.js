@@ -371,7 +371,7 @@ getDateAndTime();
   async function getResults(cityName) {
     const URL = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(
       cityName
-    )}&count=${count}&language=en&format=json`;
+    )}&count=${resultsPerSearch}&language=en&format=json`;
 
     try {
       const response = await fetch(URL);
@@ -564,7 +564,7 @@ async function getLocationData(cityObj) {
   for (const [index, card] of dailyTempCodesArr.entries()) {
     const html = `<div class="daily-card shadow flex ai-c jc-c column">
               <div class="day">${getDayOfWeek(weekArr[index]).slice(0, 3)}</div>
-              <img src="./WeatherIcons/${
+              <img src="/build/WeatherIcons/${
                 weatherIcons[dailyWeatherCodesArr[index]]
               }" alt="" class="daily-weather-icon">
               <div class="daily-weather-temp reading">${Math.floor(
