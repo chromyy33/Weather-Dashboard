@@ -44,12 +44,7 @@ export function removeClass(element, classToRemove) {
 export function addMarkup(markup, elem) {
   elem.insertAdjacentHTML("beforeEnd", markup);
 }
-function dateChanger(dateStr) {
-  const isoDateString = dateStr;
-  const date = new Date(isoDateString);
-  const localeDateString = date.toLocaleDateString();
-  return localeDateString;
-}
+
 export function getDayOfWeek(dateString) {
   const date = new Date(dateString);
   const daysOfWeek = [
@@ -113,6 +108,10 @@ export function degreeToDirection(degree) {
   return `${directions[index]}`;
 }
 export function getAQILevel(aqi) {
+  
+  if (aqi === 'N/A') {
+    return "not available";
+  }
   return aqi <= 50
     ? "Good"
     : aqi <= 100
@@ -126,19 +125,14 @@ export function getAQILevel(aqi) {
     : "Hazardous";
 }
 //Change active states for C and F
-export function changeActive(variable) {
-  const tempEl = document.querySelectorAll(".temperature");
-  tempEl.forEach((temp) => {
-    return temp.addEventListener("click", changeActive);
+export function changeReadingUnit() {
+  const savedReading = getFromLocalStorage("celsiusReading");
+  const readingEl = document.querySelectorAll(".reading");
+  readingEl.forEach((reading, index) => {
+    reading.textContent = `${celsiusToFahrenheit(savedReading[index])} °F`;
   });
-  function changeActive(e) {
-    tempEl.forEach((temp) => {
-      removeClass(temp, "current");
-    });
-    addClass(e.target, "current");
-    variable = e.target.textContent === "F" ? true : false;
-  }
 }
+
 
 // Utility function to generate weather URLs
 export function generateWeatherUrl(latitude, longitude, parameters) {
@@ -164,4 +158,42 @@ export function getFromLocalStorage(key) {
   return null;
 }
 
+export function celsiusToFahrenheit(celsius) {
+  // Convert Celsius to Fahrenheit
+  let fahrenheit = (celsius * 9) / 5 + 32;
+  // Round the result to the nearest whole number
+  let roundedFahrenheit = Math.round(fahrenheit);
+  // Return the rounded Fahrenheit temperature
+  return roundedFahrenheit;
+}
 
+
+  export function shownotif(type, message) {
+   const notifs = document.querySelector(".notifs");
+    const iconType =
+      type === "warn" ? "exclamation" : type === "error" ? "xmark" : "check";
+
+    const html = `<div class="toast">
+    <div class="toast-container ${type}">
+      <div class="message">
+        <i class="fa-solid fa-circle-${iconType} icon-${type}"></i>
+        <p>${message}</p>
+      </div>
+      <i class="fa-solid fa-xmark icon-close"></i>
+    </div>
+  </div>`;
+
+    notifs.insertAdjacentHTML("beforeend", html);
+
+    const toast = notifs.querySelector(".toast:last-child"); // Select the last .toast element added
+    const closeBtn = toast.querySelector(".icon-close");
+
+    let timeoutId;
+    timeoutId = setTimeout(() => toast.remove(), 4000);
+    console.log(toast);
+    closeBtn.addEventListener("click", () => {
+      clearTimeout(timeoutId);
+      toast.remove();
+    });
+  }
+  

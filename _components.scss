@@ -10,11 +10,15 @@
   border-radius: $border-rounded;
   background-color: var(--color-grey);
   color: inherit;
+
   .search-icon {
-    font-size: 1.3rem;
+    font-size: var(--text-size-md);
     color: var(--color-grey-light);
     margin-right: 1rem;
     margin-left: auto;
+  }
+  .location-icon {
+    color: var(--color-yellow);
   }
   .search-results {
     display: none;
@@ -24,7 +28,7 @@
     top: 110%;
     left: 0;
     width: 100%;
-    max-width: 35rem;
+
     border-radius: 2.4rem;
     z-index: 10;
 
@@ -62,7 +66,7 @@
   font-size: $text-size-md;
 
   &::placeholder {
-    font-size: $text-size-sm;
+    font-size: $text-size-md;
     color: var(--color-grey-light);
   }
   &:focus {
@@ -107,8 +111,12 @@
 
     // animation: switch 1s ease 1 forwards;
   }
+ 
 }
-
+.divider{
+  display: flex;
+  gap:2rem;
+}
 .animate,
 .backAnimate {
   transition: all ease 0.5s;
@@ -157,10 +165,10 @@
     }
   }
   .cities {
-    overflow: auto;
+    overflow: scroll;
     height: fit-content;
     width: 100%;
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     /* Thin scrollbar for WebKit browsers */
     &::-webkit-scrollbar {
@@ -168,23 +176,33 @@
     }
   }
   .cities-container {
-    height: 17rem;
+    padding-inline: 0.2rem;
+    height: 18.3rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
   .cities-card {
-    height: 8rem;
+    overflow: hidden;
+    min-height: 8rem;
     background-color: var(--color-grey);
-    padding: 1.5rem;
+    padding-left: 1.5rem;
     border-radius: 16px;
-
+    .delete-icon {
+      color: var(--color-bg);
+      transition: all ease 0.3s;
+      background-color: var(--color-yellow);
+      padding: 35rem 1rem;
+      &:hover {
+        background-color: var(--color-yellow-dark);
+      }
+    }
     .weather-icon {
-      width: 5.3rem;
+      width: 4.5rem;
     }
     .weather-reading {
-      font-size: $text-size-3xl;
-      margin: 0;
+      font-size: $text-size-lg;
+      margin-bottom: 1.3rem;
     }
     .container {
       font-size: $text-size-sm;
@@ -201,7 +219,6 @@
   .weather-reading {
     display: flex;
     font-size: 6rem;
-    margin-bottom: 1rem;
     color: var(--color-white);
   }
   .weather-info {
@@ -217,6 +234,8 @@
   .city-name,
   .weather-type {
     font-size: $text-size-xl;
+  }
+  .name {
   }
   .weather-type,
   .feels-like {
@@ -308,10 +327,7 @@
     background-color: var(--color-grey);
     border-radius: 16px;
   }
-  .status-card-small {
-    width: 100%;
-    height: 17rem;
-  }
+
   .status-card-title {
     margin-bottom: 2rem;
     color: var(--color-grey-light);
@@ -392,6 +408,7 @@
 .air-quality {
   font-size: $text-size-4xl;
   margin-bottom: 1rem;
+  margin-top: 4rem;
 }
 .visibility span,
 .humidity span {
@@ -446,4 +463,18 @@
   font-size: calc(var(--size) / 5);
   font-family: inherit;
   color: var(--color-white);
+}
+.saved-cities {
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
+@keyframes delete {
+  0% {
+  }
+  100% {
+    height: 1px;
+    transform: translateX(-100%);
+    opacity: 0;
+  }
 }
