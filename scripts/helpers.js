@@ -29,7 +29,7 @@ const weatherCodes = [
   { code: 99, description: "Thunderstorm with heavy hail" },
 ];
 
-//Helper export functions
+//Helper export functions from other file;
 export function removeAndAdd(element, prop, prop2) {
   element.classList.remove(prop);
   element.classList.add(prop2);
