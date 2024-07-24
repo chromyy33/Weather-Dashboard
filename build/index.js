@@ -564,7 +564,7 @@ async function getLocationData(cityObj) {
   for (const [index, card] of dailyTempCodesArr.entries()) {
     const html = `<div class="daily-card shadow flex ai-c jc-c column">
               <div class="day">${getDayOfWeek(weekArr[index]).slice(0, 3)}</div>
-              <img src="/build/WeatherIcons/${
+              <img src="/WeatherIcons/${
                 weatherIcons[dailyWeatherCodesArr[index]]
               }" alt="" class="daily-weather-icon">
               <div class="daily-weather-temp reading">${Math.floor(

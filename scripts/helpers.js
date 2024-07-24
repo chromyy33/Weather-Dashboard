@@ -141,7 +141,7 @@ export function generateWeatherUrl(latitude, longitude, parameters) {
 
 // Utility function to generate AQI URLs
 export function generateAqiUrl(cityName, apiKey) {
-  return `http://api.waqi.info/feed/${cityName}?token=${apiKey}`;
+  return `https://api.waqi.info/feed/${cityName}?token=${apiKey}`;
 }
 
 //Add to Local Storage
